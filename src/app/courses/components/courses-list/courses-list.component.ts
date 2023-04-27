@@ -10,11 +10,16 @@ export class CoursesListComponent {
 
   @Input() courses: Course[] = [];
   @Output() add = new EventEmitter(false)
+  @Output() edit = new EventEmitter(false)
 
   readonly displayedColumns = ['name', 'category', 'actions'];
 
   onAdd() {
     this.add.emit();
+  }
+  
+  onEdit(course: Course) {
+    this.edit.emit(course);
   }
 
 }
